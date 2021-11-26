@@ -3,6 +3,7 @@ import path from 'path';
 import eslintPlugin from 'vite-plugin-eslint';
 import viteStylelint from '@amatlash/vite-plugin-stylelint';
 import reactRefresh from '@vitejs/plugin-react-refresh';
+// import md from './plugins/md';
 
 function resolve(relativePath: string) {
   return path.resolve(__dirname, relativePath);
