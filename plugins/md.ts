@@ -1,38 +1,35 @@
-import path from 'path';
-import fs from 'fs';
-import marked from 'marked';
+// import path from 'path';
+// import fs from 'fs';
+// import marked from 'marked';
+const fileRegex = /\.(md)$/;
 
-const mdToJs = (str: any) => {
-  const content = JSON.stringify(marked(str));
-  return `export default ${content}`;
-};
+// //将md文件解析成vue能识别的组件
+// import compileSFC from '@vue/compiler-sfc';
+// import compileDOM from '@vue/compiler-dom';
+
+// 解析md文件
+import Hyperdown from 'hyperion';
 
 const md = () => {
   return {
-    name: 'md',
-    configureServer: [
-      // 用于开发
-      // eslint-disable-next-line @typescript-eslint/require-await
-      async ({ app }: { app: any }) => {
-        app.use(async (ctx: any, next: any) => {
-          // koa
-          if (ctx.path.endsWith('.md')) {
-            ctx.type = 'js';
-            const filePath = path.join(process.cwd(), ctx.path);
-            ctx.body = mdToJs(fs.readFileSync(filePath).toString());
-          } else {
-            await next();
-          }
-        });
-      },
-    ],
-    transforms: [
-      {
-        // 用于 rollup // 插件
-        test: (context: any) => context.path.endsWith('.md'),
-        transform: ({ code }: { code: any }) => mdToJs(code),
-      },
-    ],
+    //插件名字
+    name: 'markdown-loader',
+    transform(src: any, id: any) {
+      //判断是不是md结尾的文件
+      if (fileRegex.test(id)) {
+        //将md文件内容转成html，这个转换的插件也是可以自己写
+        const hyperdown = new Hyperdown();
+        const html: any = hyperdown.makeHtml(src);
+
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        const code = `${html}`;
+        const render = `${code}`;
+        return {
+          code: render,
+          map: null,
+        };
+      }
+    },
   };
 };
 

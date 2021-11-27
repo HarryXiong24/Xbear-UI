@@ -1,5 +1,5 @@
 import React from 'react';
-// import ReactMarkDown from 'react-markdown';
+import ReactMarkDown from 'react-markdown';
 // import rehypeHighlight from 'rehype-highlight';
 // import remarkGfm from 'remark-gfm';
 // import Introduction from './README.md';
