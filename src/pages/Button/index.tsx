@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
-import '@/styles/common.stories.scss';
+import '@/styles/common.example.scss';
 
 const ButtonPage = () => {
-  const commonCss = { marginBottom: 20, marginRight: 20 };
+  const commonCss = { marginTop: 10, marginBottom: 20, marginRight: 20 };
   const cardCss = { margin: '20px 20px 0 0' };
   const textCss = { fontSize: 14, marginBottom: 20 };
   const [small, setSmall] = useState(false);
