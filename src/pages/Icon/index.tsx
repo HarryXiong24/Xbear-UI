@@ -2,8 +2,9 @@ import React from 'react';
 import Icon from '@/components/Icon';
 import { ThemeProps } from '@/components/Icon/type';
 import iconsCache from '@/components/Icon/shared/res';
-// import copy from 'copy-to-clipboard';
-// import Message from '../Message';
+import copy from 'copy-to-clipboard';
+import Message from '@/components/Message';
+import '@/styles/common.example.scss';
 
 // Icon 构造器
 const BuildIcons: React.FC<{ theme: ThemeProps; icons: any }> = ({
@@ -28,6 +29,7 @@ const BuildIcons: React.FC<{ theme: ThemeProps; icons: any }> = ({
             const _length = iconName.split('-').length;
             return (
               <li
+                role="presentation"
                 className="svgCls"
                 style={{
                   display: 'inline-flex',
@@ -38,10 +40,11 @@ const BuildIcons: React.FC<{ theme: ThemeProps; icons: any }> = ({
                   padding: '0px 7.5px 20px',
                   cursor: 'pointer',
                 }}
-                // onClick={(e) => {
-                //   copy(iconName);
-                //   Message.success({ content: '复制成功啦' });
-                // }}
+                onClick={() => {
+                  copy(iconName);
+                  // console.log(iconName);
+                  void Message.success({ content: '复制成功啦' });
+                }}
                 key={index}
               >
                 <Icon theme={theme} icon={iconName} />
