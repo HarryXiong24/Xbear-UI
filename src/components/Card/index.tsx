@@ -5,6 +5,7 @@ import './style.scss';
 import '@/styles';
 
 const Card: FC<CardProps> = (props) => {
+  const prefixCls = 'xbear-card';
   const {
     title,
     cover,
@@ -20,7 +21,6 @@ const Card: FC<CardProps> = (props) => {
     ...attr
   } = props;
 
-  const prefixCls = 'xbear-card';
   return (
     <section
       className={classnames(prefixCls, className, {

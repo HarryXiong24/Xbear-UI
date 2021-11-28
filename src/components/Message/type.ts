@@ -33,3 +33,11 @@ export interface MessageProps {
    */
   theme?: ThemeProps;
 }
+
+export enum IconType {
+  SUCCESS = 'success',
+  INFO = 'info',
+  WARNING = 'warning',
+  LOADING = 'loading',
+  ERROR = 'error',
+}

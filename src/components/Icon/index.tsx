@@ -1,13 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProps, ThemeProps } from './type';
 import './style.scss';
 import '@/styles';
-import { IconProps, ThemeProps } from './type';
-
-const prefixCls = 'xbear-icon';
 
 const Icon: React.FC<IconProps> = (props) => {
+  const prefixCls = 'xbear-icon';
   const { className, theme, icon, ...restProps } = props;
   const classes = classNames('xbear-icon', className, {
     [`icon-${theme as ThemeProps}`]: theme,

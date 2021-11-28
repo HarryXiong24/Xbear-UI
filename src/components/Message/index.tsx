@@ -4,21 +4,12 @@ import classNames from 'classnames';
 import Icon from '../Icon';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { ThemeProps } from '../Icon/type';
-import { MessageProps, ShowProps } from './type';
+import { IconType, MessageProps, ShowProps } from './type';
 import './style.scss';
 import '@/styles/index';
 
-enum IconType {
-  SUCCESS = 'success',
-  INFO = 'info',
-  WARNING = 'warning',
-  LOADING = 'loading',
-  ERROR = 'error',
-}
-
-const prefixCls = 'xbear-message';
-
 export function Message(props: MessageProps) {
+  const prefixCls = 'xbear-message';
   const { visible, children, icon, theme, type } = props;
   const getIconType = (icon_type: string) => {
     switch (icon_type) {
