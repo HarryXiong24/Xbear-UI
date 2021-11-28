@@ -62,6 +62,9 @@ const App = () => {
               <Menu.Item key="2">
                 <Link to="/components/card">Card 卡片</Link>
               </Menu.Item>
+              <Menu.Item key="3">
+                <Link to="/components/icon">Icon 图标</Link>
+              </Menu.Item>
               {/* <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
                     <Menu.Item key="1">option1</Menu.Item>
                     <Menu.Item key="2">option2</Menu.Item>
@@ -97,7 +100,7 @@ const App = () => {
               style={{
                 padding: 24,
                 marginTop: 24,
-                minHeight: 280,
+                minHeight: '83vh',
               }}
             >
               <Element />
