@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Icon from '@/components/Icon';
 import { ThemeProps } from '@/components/Icon/type';
 import iconsCache from '@/components/Icon/shared/res';
 import copy from 'copy-to-clipboard';
 import Message from '@/components/Message';
+import Button from '@/components/Button';
 import '@/styles/common.example.scss';
 
 // Icon 构造器
@@ -13,8 +14,6 @@ const BuildIcons: React.FC<{ theme: ThemeProps; icons: any }> = ({
 }) => {
   return (
     <>
-      <h6> 一共支持 {Object.keys(iconsCache).slice(0, 256).length} 种图标 </h6>
-      <br />
       <ul
         style={{
           display: 'flex',
@@ -66,16 +65,46 @@ const BuildIcons: React.FC<{ theme: ThemeProps; icons: any }> = ({
   );
 };
 
-const primary: ThemeProps = 'primary';
-const info: ThemeProps = 'info';
-const danger: ThemeProps = 'danger';
+const ThemeArr: ThemeProps[] = [
+  'primary',
+  'secondary',
+  'success',
+  'info',
+  'warning',
+  'danger',
+  'light',
+  'dark',
+];
 
 const IconPage = () => {
+  const [mode, setMode] = useState<ThemeProps>('primary');
+  const changeMode = (mode_prop: ThemeProps) => {
+    setMode(mode_prop);
+  };
   return (
     <>
-      <BuildIcons theme={info} icons={iconsCache} />
-      <BuildIcons theme={primary} icons={iconsCache} />
-      <BuildIcons theme={danger} icons={iconsCache} />
+      <h6> 一共支持 {Object.keys(iconsCache).slice(0, 256).length} 种图标 </h6>
+      <p style={{ marginTop: 20 }}>有 8 种颜色模式可以选择</p>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          marginBottom: 20,
+        }}
+      >
+        {ThemeArr.map((item, index) => (
+          <Button
+            btnType="ghost"
+            key={index}
+            onClick={() => {
+              changeMode(item);
+            }}
+          >
+            {item}
+          </Button>
+        ))}
+      </div>
+      <BuildIcons theme={mode} icons={iconsCache} />
     </>
   );
 };
