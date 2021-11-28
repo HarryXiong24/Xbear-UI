@@ -1,6 +1,6 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { ThemeProps } from '../Icon/icon';
+import { ThemeProps } from '../Icon/type';
 
 export type ButtonSize = 'lg' | 'sm';
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link' | 'ghost';

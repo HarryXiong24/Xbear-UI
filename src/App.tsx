@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '@/assets/logo.svg';
 import routers from '@/router/index';
-import { Link, useRoutes } from 'react-router-dom';
+import { Link, useLocation, useRoutes } from 'react-router-dom';
 import './App.scss';
 import { Layout, Menu } from 'antd';
 
@@ -17,10 +17,19 @@ import { Layout, Menu } from 'antd';
 const App = () => {
   const Element = () => useRoutes(routers);
   const { Header, Content, Sider } = Layout;
-  const [tab, setTab] = useState('1');
+  const [tab, setTab] = useState(['1']);
+  const [side, setSide] = useState(['/components/button']);
   const changeKey = (key: string) => {
-    setTab(key);
+    setTab([key]);
   };
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname.includes('components')) {
+      setTab(['2']);
+      setSide([`${location.pathname}`]);
+    }
+  }, [location]);
 
   return (
     <Layout className="App">
@@ -29,10 +38,9 @@ const App = () => {
         <Menu
           theme="light"
           mode="horizontal"
-          defaultSelectedKeys={['1']}
+          selectedKeys={tab}
           onClick={({ key }) => {
-            console.log(key);
-
+            // console.log(key);
             changeKey(key);
           }}
         >
@@ -44,7 +52,7 @@ const App = () => {
           </Menu.Item>
         </Menu>
       </Header>
-      {tab === '1' ? (
+      {tab[0] === '1' ? (
         <Element />
       ) : (
         <Layout>
@@ -52,17 +60,17 @@ const App = () => {
             <Menu
               theme="light"
               mode="inline"
-              defaultSelectedKeys={['1']}
+              selectedKeys={side}
               // defaultOpenKeys={['sub1']}
               style={{ borderRight: 0 }}
             >
-              <Menu.Item key="1">
+              <Menu.Item key="/components/button">
                 <Link to="/components/button">Button 按钮</Link>
               </Menu.Item>
-              <Menu.Item key="2">
+              <Menu.Item key="/components/card">
                 <Link to="/components/card">Card 卡片</Link>
               </Menu.Item>
-              <Menu.Item key="3">
+              <Menu.Item key="/components/icon">
                 <Link to="/components/icon">Icon 图标</Link>
               </Menu.Item>
               {/* <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
