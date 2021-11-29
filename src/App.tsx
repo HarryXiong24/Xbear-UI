@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import logo from '@/assets/logo.svg';
 import routers from '@/router/index';
 import { Link, useLocation, useRoutes } from 'react-router-dom';
-import './App.scss';
 import { Layout, Menu } from 'antd';
+import sideBar from '@/router/router-generator';
+import './App.scss';
 
 // import { Layout, Menu, Breadcrumb } from 'antd';
 // import {
@@ -18,7 +19,7 @@ const App = () => {
   const Element = () => useRoutes(routers);
   const { Header, Content, Sider } = Layout;
   const [tab, setTab] = useState(['1']);
-  const [side, setSide] = useState(['/components/button']);
+  const [side, setSide] = useState([sideBar[0][0]]);
   const changeKey = (key: string) => {
     setTab([key]);
   };
@@ -64,15 +65,13 @@ const App = () => {
               // defaultOpenKeys={['sub1']}
               style={{ borderRight: 0 }}
             >
-              <Menu.Item key="/components/button">
-                <Link to="/components/button">Button 按钮</Link>
-              </Menu.Item>
-              <Menu.Item key="/components/card">
-                <Link to="/components/card">Card 卡片</Link>
-              </Menu.Item>
-              <Menu.Item key="/components/icon">
-                <Link to="/components/icon">Icon 图标</Link>
-              </Menu.Item>
+              {sideBar.map((item) => {
+                return (
+                  <Menu.Item key={item[0]}>
+                    <Link to={item[0]}>{item[1]}</Link>
+                  </Menu.Item>
+                );
+              })}
               {/* <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
                     <Menu.Item key="1">option1</Menu.Item>
                     <Menu.Item key="2">option2</Menu.Item>
