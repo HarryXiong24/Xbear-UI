@@ -12,8 +12,8 @@ const routes: RouteObject[] = [
     path: '/components',
     children: [
       { path: 'Icon', element: <Icon />, index: true },
-      { path: 'Button', element: <Button /> },
       { path: 'Card', element: <Card /> },
+      { path: 'Button', element: <Button /> },
     ],
   },
   { path: '*', element: <NoMatch /> },
