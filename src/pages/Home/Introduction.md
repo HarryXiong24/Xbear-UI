@@ -1,4 +1,8 @@
-# 🏠 [Homepage](https://github.com/HarryXiong24/react-vite-ts-start)
+# Introduction
+
+A UI components built with React Hooks & Typescript.
+
+🏠 [Homepage](https://github.com/HarryXiong24/Xbear-UI)
 
 ## Install
 
@@ -6,26 +10,16 @@
 yarn install
 ```
 
-## Run tests
+## Usage
 
 ```sh
-yarn
-
 yarn dev
 ```
 
-## Run build
+## Run tests
 
 ```sh
-yarn
-
-yarn build
-```
-
-## Run lint
-
-```sh
-yarn lint
+yarn test
 ```
 
 ## Author
@@ -43,6 +37,4 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2021 [Harry Xiong](https://github.com/harryxiong24).
 
-This project is [MIT](https://github.com/HarryXiong24/react-vite-ts-start/blob/master/LICENSE) licensed.
-
----
+This project is [MIT](https://github.com/HarryXiong24/Xbear-UI/blob/master/LICENSE) licensed.

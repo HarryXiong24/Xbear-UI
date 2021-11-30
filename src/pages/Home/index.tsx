@@ -3,22 +3,23 @@ import ReactMarkDown from 'react-markdown';
 import Card from '@/components/Card';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
-import Introduction from './README.md';
+import Introduction from './Introduction.md';
 import './index.scss';
 
 const Home: React.FC = (): JSX.Element => {
   return (
-    <Card className="Home" shadow>
+    <Card className="Home">
       <section className="header">
-        <h1>Welcome to react-vite-ts-start 👋</h1>
-        <p className="tag">
+        <h1>Welcome to xbear-ui 👋</h1>
+        <h2>欢迎使用 xbear-ui 👋</h2>
+        <p className="tags">
           <img
             alt="Version"
             src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000"
             className="item"
           />
           <a
-            href="https://github.com/HarryXiong24/react-vite-ts-start/README.md"
+            href="https://github.com/HarryXiong24/Xbear-UI/blob/master/README.md"
             target="_blank"
             rel="noreferrer"
             className="item"
@@ -29,7 +30,7 @@ const Home: React.FC = (): JSX.Element => {
             />
           </a>
           <a
-            href="https://github.com/HarryXiong24/react-vite-ts-start/MIT"
+            href="https://github.com/HarryXiong24/Xbear-UI/blob/master/LICENSE"
             target="_blank"
             rel="noreferrer"
             className="item"

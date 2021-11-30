@@ -35,8 +35,8 @@ yarn test
 
 👤 **Harry Xiong**
 
-* Website: https://www.harryxiong24.com
-* Github: [@harryxiong24](https://github.com/harryxiong24)
+- Website: <https://www.harryxiong24.com>
+- Github: [@harryxiong24](https://github.com/harryxiong24)
 
 ## Show your support
 
@@ -46,6 +46,3 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2021 [Harry Xiong](https://github.com/harryxiong24).<br />
 This project is [MIT](https://github.com/HarryXiong24/Xbear-UI/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
