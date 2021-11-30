@@ -19,10 +19,11 @@ const App = () => {
   const Element = () => useRoutes(routers);
   const { Header, Content, Sider } = Layout;
   const [tab, setTab] = useState(['1']);
-  const [side, setSide] = useState([sideBar[0][0]]);
+  const [side, setSide] = useState([]);
   const changeKey = (key: string) => {
     setTab([key]);
   };
+  sideBar[0][0];
   const location = useLocation();
 
   useEffect(() => {
@@ -49,12 +50,14 @@ const App = () => {
             <Link to="/">简介</Link>
           </Menu.Item>
           <Menu.Item key="2">
-            <Link to="/components/button">组件</Link>
+            <Link to={sideBar[0][0]}>组件</Link>
           </Menu.Item>
         </Menu>
       </Header>
       {tab[0] === '1' ? (
-        <Element />
+        <Content className="site-layout-background">
+          <Element />
+        </Content>
       ) : (
         <Layout>
           <Sider width={240} className="site-layout-background">

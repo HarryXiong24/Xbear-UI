@@ -1,36 +1,45 @@
-// import path from 'path';
-// import fs from 'fs';
-// import marked from 'marked';
-const fileRegex = /\.(md)$/;
+import { Plugin } from 'vite'
+import { SourceDescription } from 'rollup'
+import { transform } from 'esbuild'
+import { markdown2jsx, MarkedRenderOptions } from './utils'
+export * from './type'
+const mdRegex = /\.md$/
 
-// //将md文件解析成vue能识别的组件
-// import compileSFC from '@vue/compiler-sfc';
-// import compileDOM from '@vue/compiler-dom';
+export type mdPluginOptions = MarkedRenderOptions
 
-// 解析md文件
-import Hyperdown from 'hyperion';
-
-const md = () => {
+function mdPlugin(options: mdPluginOptions = {}): Plugin {
   return {
-    //插件名字
-    name: 'markdown-loader',
-    transform(src: any, id: any) {
-      //判断是不是md结尾的文件
-      if (fileRegex.test(id)) {
-        //将md文件内容转成html，这个转换的插件也是可以自己写
-        const hyperdown = new Hyperdown();
-        const html: any = hyperdown.makeHtml(src);
+    name: 'vite-jsx-md-plugin',
+    enforce: 'pre',
+    configResolved({ plugins }) {
+      const reactRefresh = plugins.find(
+        (plugin) => plugin.name === 'react-refresh'
+      )
+      this.transform = async function (code, id, ssr) {
+        if (mdRegex.test(id)) {
+          const { content } = markdown2jsx(code, options)
+          const { code: transformedCode } = await transform(content, {
+            loader: 'tsx',
+            target: 'esnext',
+            treeShaking: true
+          })
 
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-        const code = `${html}`;
-        const render = `${code}`;
-        return {
-          code: render,
-          map: null,
-        };
-      }
-    },
-  };
-};
+          const sourceDescription = (await reactRefresh?.transform?.call(
+            this,
+            transformedCode,
+            `${id}.tsx`,
+            ssr
+          )) as SourceDescription
+          return (
+            sourceDescription || {
+              code: transformedCode,
+              map: { mappings: '' }
+            }
+          )
+        }
+      } as Plugin['transform']
+    }
+  }
+}
 
-export default md;
+export default 
