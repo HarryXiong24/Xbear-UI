@@ -1,3 +1,19 @@
 .Home {
-  margin: 20px;
+  margin: 10px;
+  padding: 20px;
+  .header {
+    text-align: center;
+    .tag {
+      display: flex;
+      justify-content: center;
+      .item {
+        margin: 0 10px;
+      }
+    }
+    .content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }

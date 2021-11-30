@@ -1,9 +1,20 @@
 import React from 'react';
+import Card from '@/components/Card';
+import '@/styles/common.example.scss';
 
 const CardPage = () => {
+  const cardCss = { margin: '20px 20px 0 0' };
   return (
-    <div>
-      <h1>I am Card page!</h1>
+    <div className="container">
+      <Card title="基本使用" shadow style={cardCss}>
+        <h1>I am Card page!</h1>
+      </Card>
+      <Card title="基本使用" shadow style={cardCss}>
+        <h1>I am Card page!</h1>
+      </Card>
+      <Card title="基本使用" shadow style={cardCss}>
+        <h1>I am Card page!</h1>
+      </Card>
     </div>
   );
 };

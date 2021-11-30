@@ -31,7 +31,6 @@
   },
   "devDependencies": {
     "@amatlash/vite-plugin-stylelint": "^1.1.1",
-    "@col0ring/vite-plugin-md": "^1.0.3",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^17.0.20",

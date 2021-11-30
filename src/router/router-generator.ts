@@ -10,7 +10,7 @@ console.log(component);
 
 const sidebar: string[][] = [];
 component[0].children!.forEach((item) => {
-  sidebar.push([`/components/${item.path!}`, item.path!]);
+  sidebar.push([`/components/${item.path as string}`, item.path!]);
 });
 
 export default sidebar;
