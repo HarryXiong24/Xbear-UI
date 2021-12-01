@@ -17,12 +17,19 @@ const CardPage = () => {
         <h1>I am Card!</h1>
       </Card>
       <Card
-        title="title 右边自定义"
+        title="title 右边自定义 Node 元素"
         shadow
         style={cardCss}
         extra={
           <div>
-            <Button btnType="ghost">按钮</Button>
+            <Button
+              btnType="ghost"
+              onClick={() => {
+                alert('I was clicked!');
+              }}
+            >
+              按钮
+            </Button>
           </div>
         }
       >
@@ -40,16 +47,13 @@ const CardPage = () => {
           },
           {
             name: '按钮2',
-            event: () => {
-              alert('I was clicked!');
-            },
           },
         ]}
         style={cardCss}
       >
         <h1>I am Card!</h1>
       </Card>
-      <Card title="点击出现卡片阴影" showShadowWhenHover style={cardCss}>
+      <Card title="悬浮出现卡片阴影" showShadowWhenHover style={cardCss}>
         <h1>I am Card!</h1>
       </Card>
     </div>

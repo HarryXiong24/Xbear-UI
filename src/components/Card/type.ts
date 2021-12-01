@@ -2,7 +2,7 @@ import { ReactNode, CSSProperties } from 'react';
 
 interface Action {
   name: string;
-  event: () => any;
+  event?: () => any;
 }
 
 export interface CardProps {
