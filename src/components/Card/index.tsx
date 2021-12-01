@@ -16,7 +16,7 @@ const Card: FC<CardProps> = (props) => {
     titleOverflowHidden,
     actions,
     showShadowWhenHover,
-    loading,
+    // loading,
     children,
     ...attr
   } = props;
@@ -26,7 +26,7 @@ const Card: FC<CardProps> = (props) => {
       className={classnames(prefixCls, className, {
         [`${prefixCls}-shadow`]: shadow,
         [`${prefixCls}-hover`]: showShadowWhenHover,
-        [`${prefixCls}-loading`]: loading,
+        // [`${prefixCls}-loading`]: loading,
         [`${prefixCls}-cover`]: cover,
       })}
       style={style}
