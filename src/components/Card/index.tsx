@@ -16,8 +16,8 @@ const Card: FC<CardProps> = (props) => {
     titleOverflowHidden,
     actions,
     showShadowWhenHover,
-    // loading,
     children,
+    // loading,
     ...attr
   } = props;
 
@@ -26,8 +26,8 @@ const Card: FC<CardProps> = (props) => {
       className={classnames(prefixCls, className, {
         [`${prefixCls}-shadow`]: shadow,
         [`${prefixCls}-hover`]: showShadowWhenHover,
-        // [`${prefixCls}-loading`]: loading,
         [`${prefixCls}-cover`]: cover,
+        // [`${prefixCls}-loading`]: loading,
       })}
       style={style}
       {...attr}
@@ -59,8 +59,12 @@ const Card: FC<CardProps> = (props) => {
       {actions && actions.length >= 1 && (
         <div className={classnames(`${prefixCls}-actions`)}>
           {actions.map((action, key) => (
-            <div key={key} className={classnames(`${prefixCls}-actions-item`)}>
-              {action}
+            <div
+              key={key}
+              className={classnames(`${prefixCls}-actions-item`)}
+              onClick={action.event}
+            >
+              {action.name}
             </div>
           ))}
         </div>

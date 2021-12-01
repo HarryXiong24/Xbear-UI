@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '@/components/Card';
+import Button from '@/components/Button';
 import '@/styles/example.scss';
 
 const CardPage = () => {
@@ -21,7 +22,7 @@ const CardPage = () => {
         style={cardCss}
         extra={
           <div>
-            <p>extra</p>
+            <Button btnType="ghost">按钮</Button>
           </div>
         }
       >
@@ -30,7 +31,20 @@ const CardPage = () => {
       <Card
         title="卡片带按钮"
         shadow
-        actions={['按钮1', '按钮2']}
+        actions={[
+          {
+            name: '按钮1',
+            event: () => {
+              alert('I was clicked!');
+            },
+          },
+          {
+            name: '按钮2',
+            event: () => {
+              alert('I was clicked!');
+            },
+          },
+        ]}
         style={cardCss}
       >
         <h1>I am Card!</h1>

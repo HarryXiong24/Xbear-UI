@@ -1,5 +1,10 @@
 import { ReactNode, CSSProperties } from 'react';
 
+interface Action {
+  name: string;
+  event: () => any;
+}
+
 export interface CardProps {
   // 正常的 class 属性
   className?: string;
@@ -18,6 +23,6 @@ export interface CardProps {
   // title 右边额外插入的元素
   extra?: ReactNode;
   // 卡片按钮
-  actions?: string[];
+  actions?: Action[];
   // loading?: boolean;
 }
