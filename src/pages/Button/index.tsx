@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
-import '@/styles/common.example.scss';
+import '@/styles/example.scss';
 
 const ButtonPage = () => {
   const commonCss = { marginTop: 10, marginBottom: 20, marginRight: 20 };

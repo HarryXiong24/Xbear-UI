@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '@/components/Card';
-import '@/styles/common.example.scss';
+import '@/styles/example.scss';
 
 const CardPage = () => {
   const cardCss = { margin: '20px 20px 0 0' };

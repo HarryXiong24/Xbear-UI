@@ -5,7 +5,7 @@ import iconsCache from '@/components/Icon/shared/res';
 import copy from 'copy-to-clipboard';
 import Message from '@/components/Message';
 import Button from '@/components/Button';
-import '@/styles/common.example.scss';
+import '@/styles/example.scss';
 
 // Icon 构造器
 const BuildIcons: React.FC<{ theme: ThemeProps; icons: any }> = ({
