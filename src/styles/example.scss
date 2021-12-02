@@ -1,3 +1,19 @@
+.container {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, auto);
+  width: 100%;
+
+  &.item:nth-of-type(2n) {
+    grid-row: auto;
+  }
+
+  &.item:nth-of-type(2n + 1) {
+    grid-row: auto;
+  }
+}
+
 // .container {
 //   column-count: 2;
 //   column-width: 500px;
@@ -9,23 +25,6 @@
 //     break-inside: avoid;
 //   }
 // }
-
-.container {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2, auto);
-
-  grid-auto-rows: auto;
-  width: 100%;
-
-  &.item:nth-of-type(2n) {
-    grid-row: auto;
-  }
-
-  &.item:nth-of-type(2n + 1) {
-    grid-row: auto;
-  }
-}
 
 // .container {
 //   display: flex;

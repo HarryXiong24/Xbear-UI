@@ -30,8 +30,8 @@ $xbear-card-content-padding: 22px 20px;
     }
 
     .xbear-card-header {
-      padding: 0;
       display: block;
+      padding: 0;
 
       &-title {
         padding: $xbear-card-title-padding;
@@ -40,14 +40,14 @@ $xbear-card-content-padding: 22px 20px;
   }
 
   &-header {
-    padding: $xbear-card-header-padding;
-    box-sizing: border-box;
-    border-bottom: 1px solid $border-color;
-    margin: 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    box-sizing: border-box;
+    margin: 0;
+    padding: $xbear-card-header-padding;
     font-size: $font-size-base;
+    border-bottom: 1px solid $border-color;
 
     &-title {
       flex: 1 1 auto;
@@ -58,8 +58,8 @@ $xbear-card-content-padding: 22px 20px;
     }
 
     &-extra {
-      text-align: right;
       flex: 0 0 15%;
+      text-align: right;
       @include ellipsis(1);
     }
   }
@@ -69,19 +69,19 @@ $xbear-card-content-padding: 22px 20px;
   }
 
   &-actions {
-    border-top: 1px solid $border-color;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid $border-color;
 
     &-item {
-      text-align: center;
-      padding: 12px 0;
       flex: 1;
+      padding: 12px 0;
+      color: $font-color;
+      font-size: $font-size-base;
+      text-align: center;
       background-color: $white;
       cursor: pointer;
-      font-size: $font-size-base;
-      color: $font-color;
       transition: color $default-transition;
 
       &:hover {

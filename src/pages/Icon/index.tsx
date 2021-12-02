@@ -83,7 +83,10 @@ const IconPage = () => {
   };
   return (
     <>
-      <h6> 一共支持 {Object.keys(iconsCache).slice(0, 256).length} 种图标 </h6>
+      <h2>Icon 图标</h2>
+      <h6 style={{ marginTop: 20 }}>
+        一共支持 {Object.keys(iconsCache).slice(0, 256).length} 种图标{' '}
+      </h6>
       <p style={{ marginTop: 20 }}>有 8 种颜色模式可以选择</p>
       <div
         style={{
