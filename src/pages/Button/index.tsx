@@ -184,7 +184,7 @@ const ButtonPage = () => {
                 style={commonCss}
               />
             </div>
-            {/* 常规 */}
+            {/* 常规
             <div>
               <Button icon="bolt" circle btnType="primary" style={commonCss} />
               <Button
@@ -194,7 +194,7 @@ const ButtonPage = () => {
                 style={commonCss}
               />
               <Button icon="check" circle btnType="dark" style={commonCss} />
-            </div>
+            </div> */}
             {/* 大 */}
             <div>
               <Button
