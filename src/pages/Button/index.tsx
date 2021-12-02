@@ -24,8 +24,20 @@ const ButtonPage = () => {
             <Button btnType="primary" style={commonCss}>
               Primary
             </Button>
+            <Button btnType="secondary" style={commonCss}>
+              Secondary
+            </Button>
+            <Button btnType="success" style={commonCss}>
+              Success
+            </Button>
+            <Button btnType="warning" style={commonCss}>
+              Warning
+            </Button>
             <Button btnType="danger" style={commonCss}>
               Danger
+            </Button>
+            <Button btnType="dark" style={commonCss}>
+              Dark
             </Button>
             <div
               style={{
@@ -108,7 +120,12 @@ const ButtonPage = () => {
         </div>
         <div className="item">
           <Card title="Icon 按钮" style={cardCss} shadow>
-            <Button icon="check" btnType="default" style={commonCss}>
+            <Button
+              icon="check"
+              theme="warning"
+              btnType="default"
+              style={commonCss}
+            >
               Default
             </Button>
             <Button icon="battery-half" btnType="primary" style={commonCss}>
@@ -138,8 +155,71 @@ const ButtonPage = () => {
           </Card>
         </div>
         <div className="item">
+          <Card title="圆形 Icon 按钮" style={cardCss} shadow>
+            {/* 小 */}
+            <div>
+              <Button
+                icon="bolt"
+                circle
+                size="sm"
+                btnType="secondary"
+                style={commonCss}
+              />
+              <Button
+                icon="battery-half"
+                circle
+                size="sm"
+                btnType="secondary"
+                style={commonCss}
+              />
+              <Button
+                icon="check"
+                size="sm"
+                circle
+                btnType="success"
+                style={commonCss}
+              />
+            </div>
+            {/* 常规 */}
+            <div>
+              <Button icon="bolt" circle btnType="primary" style={commonCss} />
+              <Button
+                icon="battery-half"
+                circle
+                btnType="danger"
+                style={commonCss}
+              />
+              <Button icon="check" circle btnType="dark" style={commonCss} />
+            </div>
+            {/* 大 */}
+            <div>
+              <Button
+                icon="bolt"
+                circle
+                size="lg"
+                btnType="secondary"
+                style={commonCss}
+              />
+              <Button
+                icon="battery-half"
+                circle
+                size="lg"
+                btnType="secondary"
+                style={commonCss}
+              />
+              <Button
+                icon="check"
+                size="lg"
+                circle
+                btnType="success"
+                style={commonCss}
+              />
+            </div>
+          </Card>
+        </div>
+        <div className="item">
           <Card title="加载中..." style={cardCss} shadow>
-            <Button loading icon="check" btnType="default" style={commonCss}>
+            <Button loading btnType="default" style={commonCss}>
               Default Loading
             </Button>
             <Button
@@ -150,7 +230,7 @@ const ButtonPage = () => {
             >
               Primary Loading
             </Button>
-            <Button loading icon="bolt" btnType="danger" style={commonCss}>
+            <Button loading btnType="danger" style={commonCss}>
               Danger Loading
             </Button>
             <div
@@ -164,7 +244,7 @@ const ButtonPage = () => {
                 marginRight: 20,
               }}
             >
-              <Button loading icon="caret-square-right" btnType="ghost">
+              <Button loading btnType="ghost">
                 Ghost Loading
               </Button>
             </div>
@@ -172,20 +252,21 @@ const ButtonPage = () => {
               Link Loading
             </Button>
             <div style={{ marginBottom: 20 }}>
-              <code>⬇️ 点击后进入加载状态，2 秒后恢复</code>
+              <code>⬇️ 点击按钮后进入加载状态，1 秒后恢复</code>
             </div>
             <Button
               loading={loading}
               btnType="primary"
               style={commonCss}
+              icon="bolt"
               onClick={() => {
                 setLoading(true);
                 setTimeout(() => {
                   setLoading(false);
-                }, 2000);
+                }, 1000);
               }}
             >
-              点一下
+              Click me!
             </Button>
           </Card>
         </div>
@@ -197,8 +278,20 @@ const ButtonPage = () => {
             <Button btnType="primary" disabled style={commonCss}>
               Primary
             </Button>
+            <Button btnType="secondary" disabled style={commonCss}>
+              Secondary
+            </Button>
+            <Button btnType="success" disabled style={commonCss}>
+              Success
+            </Button>
+            <Button btnType="warning" disabled style={commonCss}>
+              Warning
+            </Button>
             <Button btnType="danger" disabled style={commonCss}>
               Danger
+            </Button>
+            <Button btnType="dark" disabled style={commonCss}>
+              Dark
             </Button>
             <div
               style={{

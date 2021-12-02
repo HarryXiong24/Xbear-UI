@@ -4,7 +4,7 @@ import { CardProps } from './type';
 import './style.scss';
 import '@/styles';
 
-const Card: FC<CardProps> = (props) => {
+export const Card: FC<CardProps> = (props) => {
   const prefixCls = 'xbear-card';
   const {
     title,
@@ -18,7 +18,7 @@ const Card: FC<CardProps> = (props) => {
     showShadowWhenHover,
     children,
     // loading,
-    ...attr
+    ...restProps
   } = props;
 
   return (
@@ -30,7 +30,7 @@ const Card: FC<CardProps> = (props) => {
         // [`${prefixCls}-loading`]: loading,
       })}
       style={style}
-      {...attr}
+      {...restProps}
     >
       {(title || extra) && (
         <div className={classnames(`${prefixCls}-header`)}>

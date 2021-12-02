@@ -5,7 +5,7 @@ import { IconProps, ThemeProps } from './type';
 import './style.scss';
 import '@/styles';
 
-const Icon: React.FC<IconProps> = (props) => {
+export const Icon: React.FC<IconProps> = (props) => {
   // CSS 前缀名
   const prefixCls = 'xbear-icon';
   const { className, theme, icon, ...restProps } = props;

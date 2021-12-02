@@ -5,17 +5,8 @@ import { ButtonProps, ButtonSize, ButtonType } from './type';
 import './style.scss';
 import '@/styles';
 
-const prefixCls = 'xbear-btn';
-
-/**
- * 页面中最常用的的按钮元素，适合于完成特定的交互
- * ### 引用方法
- *
- * ~~~js
- * import { Button } from 'chocolate-ui'
- * ~~~
- */
 export const Button: React.FC<ButtonProps> = (props) => {
+  const prefixCls = 'xbear-btn';
   const {
     btnType,
     className,
@@ -26,6 +17,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     icon,
     theme,
     loading,
+    circle,
     ...restProps
   } = props;
 
@@ -33,6 +25,17 @@ export const Button: React.FC<ButtonProps> = (props) => {
     [`${prefixCls}-${btnType as ButtonType}`]: btnType,
     [`${prefixCls}-${size as ButtonSize}`]: size,
     [`${prefixCls}-loading`]: loading,
+    [`${prefixCls}-circle`]: circle,
+    // 因为原生 a 标签里面没有 disabled 属性，所以对于 link 类型，我们手动实现 disabled 属性
+    disabled: btnType === 'link' && disabled,
+  });
+
+  const classes_circle = classNames(prefixCls, className, {
+    [`${prefixCls}-${btnType as ButtonType}`]: btnType,
+    [`${prefixCls}-circle-${size as ButtonSize}`]: size,
+    [`${prefixCls}-loading`]: loading,
+    [`${prefixCls}-circle`]: circle,
+    // 因为原生 a 标签里面没有 disabled 属性，所以对于 link 类型，我们手动实现 disabled 属性
     disabled: btnType === 'link' && disabled,
   });
 
@@ -41,6 +44,16 @@ export const Button: React.FC<ButtonProps> = (props) => {
       <a className={classes} href={href} {...restProps}>
         {children}
       </a>
+    );
+  } else if (circle) {
+    return (
+      <button className={classes_circle} disabled={disabled} {...restProps}>
+        <Icon
+          icon={icon!}
+          theme={theme}
+          style={{ width: '1rem', height: '1rem' }}
+        />
+      </button>
     );
   } else {
     return (
@@ -54,14 +67,6 @@ export const Button: React.FC<ButtonProps> = (props) => {
       </button>
     );
   }
-};
-
-Button.defaultProps = {
-  className: '',
-  disabled: false,
-  size: 'sm',
-  btnType: 'default',
-  href: '',
 };
 
 export default Button;

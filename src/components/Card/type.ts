@@ -1,7 +1,9 @@
 import { ReactNode, CSSProperties } from 'react';
 
 interface Action {
+  // action 名
   name: string;
+  // action 对应的点击事件
   event?: () => any;
 }
 
