@@ -5,6 +5,11 @@ import iconsCache from '@/components/Icon/shared/res';
 import copy from 'copy-to-clipboard';
 import Message from '@/components/Message';
 import Button from '@/components/Button';
+import ReactMarkdown from 'react-markdown';
+import Card from '@/components/Card';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
+import IconMD from './Icon.md';
 import '@/styles/example.scss';
 
 // Icon 构造器
@@ -42,7 +47,7 @@ const BuildIcons: React.FC<{ theme: ThemeProps; icons: any }> = ({
                 onClick={() => {
                   copy(iconName);
                   // console.log(iconName);
-                  void Message.success({ content: '复制成功啦' });
+                  void Message.success({ content: '复制成功' });
                 }}
                 key={index}
               >
@@ -108,6 +113,14 @@ const IconPage = () => {
         ))}
       </div>
       <BuildIcons theme={mode} icons={iconsCache} />
+      <Card shadow>
+        <ReactMarkdown
+          rehypePlugins={[rehypeHighlight]}
+          remarkPlugins={[remarkGfm]}
+          // eslint-disable-next-line react/no-children-prop
+          children={IconMD}
+        />
+      </Card>
     </>
   );
 };
