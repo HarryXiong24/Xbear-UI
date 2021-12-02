@@ -1,6 +1,10 @@
 import React from 'react';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
+import CardMD from './Card.md';
 import '@/styles/example.scss';
 
 const CardPage = () => {
@@ -59,6 +63,14 @@ const CardPage = () => {
           <h1>I am Card!</h1>
         </Card>
       </div>
+      <Card shadow style={{ marginTop: 50 }}>
+        <ReactMarkdown
+          rehypePlugins={[rehypeHighlight]}
+          remarkPlugins={[remarkGfm]}
+          // eslint-disable-next-line react/no-children-prop
+          children={CardMD}
+        />
+      </Card>
     </>
   );
 };
