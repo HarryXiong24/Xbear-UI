@@ -4,7 +4,6 @@ import { ThemeProps } from '@/components/Icon/type';
 import iconsCache from '@/components/Icon/shared/res';
 import copy from 'copy-to-clipboard';
 import Message from '@/components/Message';
-import Button from '@/components/Button';
 import Tabs from '@/components/Tabs/tabs';
 import TabItem from '@/components/Tabs/tabItem';
 import '@/styles/example.scss';
@@ -104,9 +103,7 @@ const IconDemo = () => {
           }}
         >
           {ThemeArr.map((item, index) => (
-            <TabItem key={index} label={item}>
-              {item}
-            </TabItem>
+            <TabItem key={index} label={item} />
           ))}
         </Tabs>
       </div>
