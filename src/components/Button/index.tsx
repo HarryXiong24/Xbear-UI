@@ -69,4 +69,12 @@ export const Button: React.FC<ButtonProps> = (props) => {
   }
 };
 
+Button.defaultProps = {
+  className: '',
+  disabled: false,
+  size: 'sm',
+  btnType: 'default',
+  href: '',
+};
+
 export default Button;
