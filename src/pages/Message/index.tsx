@@ -1,10 +1,18 @@
 import React from 'react';
+import MessageDemo from './demo';
+import MessageDoc from './doc';
+import Tabs from '@/components/Tabs';
 
 const MessagePage = () => {
   return (
-    <div>
-      <h1>I am Card page!</h1>
-    </div>
+    <Tabs type="line" defaultIndex={0}>
+      <Tabs.Item label="Demo">
+        <MessageDemo />
+      </Tabs.Item>
+      <Tabs.Item label="API">
+        <MessageDoc />
+      </Tabs.Item>
+    </Tabs>
   );
 };
 

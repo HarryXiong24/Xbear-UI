@@ -18,7 +18,7 @@ export function Message(props: MessageProps) {
       case IconType.SUCCESS:
         return { icon: 'check-circle', theme: 'success' };
       case IconType.INFO:
-        return { icon: 'info-circle', theme: 'info' };
+        return { icon: 'info-circle', theme: 'primary' };
       case IconType.WARNING:
         return { icon: 'exclamation-circle', theme: 'warning' };
       case IconType.LOADING:
