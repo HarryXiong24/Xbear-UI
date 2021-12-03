@@ -12,15 +12,27 @@ const BuildIcons: React.FC<{ theme: ThemeProps; icons: any }> = ({
   theme,
   icons,
 }) => {
-  return (
-    <>
-      <ul
-        style={{
+  const style =
+    theme === 'light'
+      ? {
           display: 'flex',
           flexFlow: 'row wrap',
           listStyle: 'none',
-        }}
-      >
+          padding: 5,
+          margin: '0 5px',
+          backgroundColor: '#22272e',
+        }
+      : {
+          display: 'flex',
+          flexFlow: 'row wrap',
+          listStyle: 'none',
+          padding: 5,
+          margin: '0 5px',
+        };
+
+  return (
+    <>
+      <ul style={style}>
         {Object.keys(iconsCache)
           .splice(0, 256)
           .map((key, index) => {
@@ -91,7 +103,7 @@ const IconDemo = () => {
         style={{
           display: 'flex',
           justifyContent: 'flex-start',
-          marginBottom: 20,
+          marginBottom: 10,
         }}
       >
         <Tabs
