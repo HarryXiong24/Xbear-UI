@@ -6,6 +6,7 @@ import Button from '@/pages/Button/index';
 import Card from '@/pages/Card/index';
 import Icon from '@/pages/Icon';
 import Message from '@/pages/Message';
+import Tabs from '@/pages/Tabs';
 
 const routes: RouteObject[] = [
   { path: '/', element: <Home />, index: true },
@@ -16,6 +17,7 @@ const routes: RouteObject[] = [
       { path: 'Card', element: <Card /> },
       { path: 'Button', element: <Button /> },
       { path: 'Message', element: <Message /> },
+      { path: 'Tabs', element: <Tabs /> },
     ],
   },
   { path: '*', element: <NoMatch /> },
