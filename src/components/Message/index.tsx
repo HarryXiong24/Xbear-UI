@@ -4,13 +4,15 @@ import classNames from 'classnames';
 import Icon from '../Icon';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { ThemeProps } from '../Icon/type';
-import { IconType, MessageProps, ShowProps } from './type';
+import { IconType, MessageProps, MessageType, ShowProps } from './type';
 import './style.scss';
 import '@/styles/index';
 
 export function Message(props: MessageProps) {
   const prefixCls = 'xbear-message';
   const { visible, children, icon, theme, type } = props;
+
+  // 获取对应的图标类型
   const getIconType = (icon_type: string) => {
     switch (icon_type) {
       case IconType.SUCCESS:
@@ -27,6 +29,8 @@ export function Message(props: MessageProps) {
         return { icon: 'check-circle', theme: 'success' };
     }
   };
+
+  // 返回的渲染元素
   const result = (
     <div className={`${prefixCls}`}>
       <div
@@ -50,10 +54,19 @@ export function Message(props: MessageProps) {
       </div>
     </div>
   );
+
+  /**
+   * Portal 提供了一种将子节点渲染到存在于父组件以外的 DOM 节点的优秀的方案
+   * ReactDOM.createPortal(child, container)
+   * 第一个参数（child）是任何可渲染的 React 子元素，例如一个元素，字符串或 fragment
+   * 第二个参数（container）是一个 DOM 元素。
+   */
+  // 将 result 渲染在 document.body 上
   return ReactDom.createPortal(result, document.body);
 }
 
-const renderELement = (type: string, props: ShowProps) => {
+// 渲染 Message 的函数
+const renderELement = (type: MessageType, props: ShowProps) => {
   const { onClose, duration = 1, content, icon } = props;
   const result = (
     <Message visible icon={icon} type={type}>
