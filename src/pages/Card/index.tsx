@@ -1,18 +1,17 @@
 import React from 'react';
 import CardDemo from './demo';
 import CardDoc from './doc';
-import Tabs from '@/components/Tabs/tabs';
-import TabItem from '@/components/Tabs/tabItem';
+import Tabs from '@/components/Tabs';
 
 const CardPage = () => {
   return (
     <Tabs type="line" defaultIndex={0}>
-      <TabItem label="Demo">
+      <Tabs.Item label="Demo">
         <CardDemo />
-      </TabItem>
-      <TabItem label="API">
+      </Tabs.Item>
+      <Tabs.Item label="API">
         <CardDoc />
-      </TabItem>
+      </Tabs.Item>
     </Tabs>
   );
 };

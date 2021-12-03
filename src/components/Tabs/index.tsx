@@ -1,13 +1,15 @@
 import { FC } from 'react';
-import Tabs, { TabsProps } from './tabs';
-import TabItem, { TabItemProps } from './tabItem';
+import TabWrap from './tabWrap';
+import TabItem from './tabItem';
+import { TabsProps, TabItemProps } from './type';
 import './style.scss';
 import '@/styles';
 
-export type ITabsComponent = FC<TabsProps> & {
+export type TabsComponent = FC<TabsProps> & {
   Item: FC<TabItemProps>;
 };
 
-const TransTabs = Tabs as ITabsComponent;
-TransTabs.Item = TabItem;
-export default TransTabs;
+const Tabs = TabWrap as TabsComponent;
+Tabs.Item = TabItem;
+
+export default Tabs;

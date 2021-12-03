@@ -1,35 +1,18 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { scopedClass } from '../../utils/scopedClass';
-import { TabItemProps } from './tabItem';
+import { TabsProps, TabItemProps } from './type';
 import './style.scss';
 import '@/styles';
 
-const sc = scopedClass('chocolate-tabs');
+// 生成构造作用域函数
+const scFunc = scopedClass('xbear-tabs');
 
-export interface TabsProps {
-  /**当前激活 tab 面板的 index，默认为0 */
-  defaultIndex?: number;
-  /**可以扩展的 className */
-  className?: string;
-  /**点击 Tab 触发的回调函数 */
-  onSelect?: (selectedIndex: number) => void;
-  /**Tabs的样式，两种可选，默认为 line */
-  type?: 'line' | 'card';
-}
-
-/**
- * ### 引用方法
- *
- * ~~~js
- * import { Tabs } from 'chocolate-ui'
- * ~~~
- */
-export const Tabs: FC<TabsProps> = (props) => {
+export const TabWrap: FC<TabsProps> = (props) => {
   const { defaultIndex, className, onSelect, type, children } = props;
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
-  const classes = classNames('chocolate-tabs', className);
 
+  // 点击 Tab 触发的事件
   const handleItemClick = (index: number, disabled: boolean) => {
     if (!disabled) {
       setActiveIndex(index);
@@ -38,24 +21,28 @@ export const Tabs: FC<TabsProps> = (props) => {
       }
     }
   };
-  const navClass = classNames(sc('nav'), {
+
+  const classes = classNames('xbear-tabs', className);
+
+  const navClass = classNames(scFunc('nav'), {
     'nav-line': type === 'line',
     'nav-card': type === 'card',
   });
 
+  // 渲染 Tab 标签
   const renderNavLinks = () => {
     return React.Children.map(children, function (child, index) {
       const childElement =
         child as React.FunctionComponentElement<TabItemProps>;
       const { label, disabled = false } = childElement.props;
       // eslint-disable-next-line @typescript-eslint/no-shadow
-      const classes = classNames(sc('nav-item'), {
+      const classes = classNames(scFunc('nav-item'), {
         'is-active': activeIndex === index,
         disabled: disabled,
       });
       return (
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
         <li
+          role="presentation"
           key={`nav-item-${index}`}
           className={classes}
           onClick={() => handleItemClick(index, disabled)}
@@ -66,6 +53,7 @@ export const Tabs: FC<TabsProps> = (props) => {
     });
   };
 
+  // 渲染每个 Tab 里呈现的内容
   const renderContent = () => {
     return React.Children.map(children, function (child, index) {
       if (index === activeIndex) {
@@ -77,17 +65,18 @@ export const Tabs: FC<TabsProps> = (props) => {
   return (
     <div className={classes}>
       <ul className={navClass}>{renderNavLinks()}</ul>
-      <div className={sc('content')}>{renderContent()}</div>
+      <div className={scFunc('content')}>{renderContent()}</div>
     </div>
   );
 };
 
-Tabs.defaultProps = {
+TabWrap.defaultProps = {
   defaultIndex: 0,
   type: 'line',
   className: '',
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onSelect: () => {},
+  onSelect: () => {
+    return undefined;
+  },
 };
 
-export default Tabs;
+export default TabWrap;

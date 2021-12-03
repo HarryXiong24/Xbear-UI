@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import IconDemo from './demo';
 import IconDoc from './doc';
-import Tabs from '@/components/Tabs/tabs';
-import TabItem from '@/components/Tabs/tabItem';
+import Tabs from '@/components/Tabs';
 
 const IconPage = () => {
   return (
     <Tabs type="line" defaultIndex={0}>
-      <TabItem label="Demo">
+      <Tabs.Item label="Demo">
         <IconDemo />
-      </TabItem>
-      <TabItem label="API">
+      </Tabs.Item>
+      <Tabs.Item label="API">
         <IconDoc />
-      </TabItem>
+      </Tabs.Item>
     </Tabs>
   );
 };

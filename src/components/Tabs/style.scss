@@ -1,9 +1,8 @@
-@import "../../styles/mixin";
-@import "../../styles/variables";
-@import "../../styles/reboot";
+@import '../../styles/mixin';
+@import '../../styles/variables';
+@import '../../styles/reboot';
 
-.chocolate-tabs {
-
+.xbear-tabs {
   &-nav {
     display: flex;
     list-style: none;
@@ -30,7 +29,8 @@
 
       &.is-active {
         color: $menu-item-active-color;
-        border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+        border-bottom: $menu-item-active-border-width solid
+          $menu-item-active-color;
       }
 
       &:hover {
@@ -42,19 +42,18 @@
   &-content {
     margin-top: 10px;
   }
-
 }
 
-.nav-line .chocolate-tabs-nav-item.is-active {
+.nav-line .xbear-tabs-nav-item.is-active {
   border-bottom: 2px solid $tabs-nav-active;
 }
 
-.nav-card .chocolate-tabs-nav-item {
+.nav-card .xbear-tabs-nav-item {
   border: 1px solid transparent;
   margin-bottom: -1px;
 }
 
-.nav-card .chocolate-tabs-nav-item.is-active {
+.nav-card .xbear-tabs-nav-item.is-active {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   background-color: $white;
