@@ -17,7 +17,7 @@
 
 `Tabs.Item` 属性说明如下：
 
-| 属性       | 说明               | 类型      | 默认值              | 版本 |
-| ---------- | ------------------ | --------- | ------------------- | ---- |
-| `label`    | Tab 选项上面的文字 | `string   | React.ReactElement` | none |
-| `disabled` | Tab 选项是否被禁用 | `boolean` | false               |      |
+| 属性       | 说明               | 类型                             | 默认值 | 版本 |
+| ---------- | ------------------ | -------------------------------- | ------ | ---- |
+| `label`    | Tab 选项上面的文字 | `string` \| `React.ReactElement` | none   |      |
+| `disabled` | Tab 选项是否被禁用 | `boolean`                        | false  |      |
