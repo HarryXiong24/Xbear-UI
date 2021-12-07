@@ -19,7 +19,7 @@ const App = () => {
   const Element = () => useRoutes(routers);
   const { Header, Content, Sider } = Layout;
   const [tab, setTab] = useState(['1']);
-  const [side, setSide] = useState([]);
+  const [side, setSide] = useState<string[]>([]);
   const changeKey = (key: string) => {
     setTab([key]);
   };
