@@ -25,6 +25,9 @@ const App = () => {
     <div className="App">
       <header className="header">
         <img src={logo} className="icon" alt="logo" />
+        <p className="title">
+          <span>X</span>bear <span>UI</span>
+        </p>
         <Menu
           className="menus"
           mode="horizontal"
@@ -69,7 +72,7 @@ const App = () => {
               className="site-layout-background"
               style={{
                 padding: 24,
-                marginTop: 24,
+                marginBottom: 10,
                 minHeight: '83vh',
               }}
             >
