@@ -6,11 +6,11 @@ const component = routers.filter((item) => {
   }
 });
 
-console.log(component);
+// console.log(component);
 
 const sidebar: string[][] = [];
-component[0].children!.forEach((item) => {
-  sidebar.push([`/components/${item.path as string}`, item.path!]);
+component[0].children!.forEach((item, index) => {
+  sidebar.push([`${index}`, `/components/${item.path as string}`, item.path!]);
 });
 
 export default sidebar;
