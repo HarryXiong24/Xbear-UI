@@ -28,7 +28,7 @@ const TabsDemo = () => {
             <Tabs.Item myRef={tabItemRef} label="将进酒">
               {Description1}
               <Button
-                icon="music"
+                icon="bolt"
                 circle
                 size="sm"
                 onClick={() => {

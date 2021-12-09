@@ -34,7 +34,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     [`${prefixCls}-${btnType as ButtonType}`]: btnType,
     [`${prefixCls}-circle-${size as ButtonSize}`]: size,
     [`${prefixCls}-loading`]: loading,
-    [`${prefixCls}-circle`]: circle,
+    // [`${prefixCls}-circle`]: circle,
     // 因为原生 a 标签里面没有 disabled 属性，所以对于 link 类型，我们手动实现 disabled 属性
     disabled: btnType === 'link' && disabled,
   });
