@@ -1,0 +1,19 @@
+import React from 'react';
+import Tabs from '@/components/Tabs';
+import {{pascalCase name}}Demo from './demo';
+import {{pascalCase name}}Doc from './doc';
+
+const {{pascalCase name}}Page = () => {
+  return (
+    <Tabs type="line" defaultIndex={0}>
+      <Tabs.Item label="Demo">
+        <{{pascalCase name}}Demo />
+      </Tabs.Item>
+      <Tabs.Item label="API">
+        <{{pascalCase name}}Doc />
+      </Tabs.Item>
+    </Tabs>
+  );
+};
+
+export default {{pascalCase name}}Page;
