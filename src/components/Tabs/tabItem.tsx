@@ -1,12 +1,18 @@
-import React, { FC } from 'react';
+import React, { FC, useImperativeHandle } from 'react';
 import { TabItemProps } from './type';
 
 const TabItem: FC<TabItemProps> = (props) => {
-  const { children } = props;
+  const { children, myRef } = props;
+
+  const showContent = () => {
+    alert(children);
+  };
+
+  useImperativeHandle(myRef, () => ({
+    showContent,
+  }));
 
   return <>{children}</>;
 };
-
-TabItem.displayName = 'TabItem';
 
 export default TabItem;

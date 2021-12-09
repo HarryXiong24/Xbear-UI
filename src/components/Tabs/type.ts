@@ -14,4 +14,6 @@ export interface TabItemProps {
   label: string | React.ReactElement;
   // Tab 选项是否被禁用
   disabled?: boolean;
+  // 自定义 ref
+  myRef?: React.Ref<any>;
 }

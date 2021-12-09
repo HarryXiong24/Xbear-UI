@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Tabs from '@/components/Tabs';
 import Icon from '@/components/Icon';
 import Card from '@/components/Card';
 import { Description1, Description2, Description3 } from './poem';
 import '@/styles/example.scss';
+import Button from '@/components/Button';
 
 const TabsDemo = () => {
   const cardCss = { margin: '20px 20px 0 0' };
+  const tabItemRef = useRef(null);
+
   return (
     <div className="container">
       <div className="item">
@@ -22,7 +25,19 @@ const TabsDemo = () => {
       <div className="item">
         <Card title="卡片类型" style={cardCss} shadow>
           <Tabs type="card">
-            <Tabs.Item label="将进酒">{Description1}</Tabs.Item>
+            <Tabs.Item myRef={tabItemRef} label="将进酒">
+              {Description1}
+              <Button
+                icon="music"
+                circle
+                size="sm"
+                onClick={() => {
+                  (tabItemRef.current as any).showContent();
+                }}
+              >
+                点我触发
+              </Button>
+            </Tabs.Item>
             <Tabs.Item label="临江仙·滚滚长江东逝水">{Description2}</Tabs.Item>
             <Tabs.Item label="念奴娇·赤壁怀古">{Description3}</Tabs.Item>
           </Tabs>
