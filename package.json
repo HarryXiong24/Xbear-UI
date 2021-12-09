@@ -14,7 +14,7 @@
     "commit": "cz",
     "log:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "newpage": "plop --plopfile ./scripts/plopfile.js"
+    "new": "plop --plopfile ./scripts/plopfile.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
